@@ -4,16 +4,17 @@
 
 <code>React</code> Movie Search is a web app that allows users to search for movies based on the TMDB API.
 
-👉 [Live Demo](https://film-findr.netlify.app/)
+👉 [Live Demo] coming soon.
 
 ## Technology used
 
-- React.js
-- Custom CSS3 styling 
+- React
+- Styled Components 
 - TMDB API
 - React Hooks
 - React Router
 - React Slick
+- React Redux
 
 ## Features
 
