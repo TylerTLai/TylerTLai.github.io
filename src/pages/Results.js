@@ -62,7 +62,7 @@ const StyledMovie = styled(motion.div)`
   border-radius: 3px;
   display: grid;
   grid-template-rows: 2fr 0.5fr 0.5fr;
-  grid-template-columns: 1fr;
+  grid-template-columns: 180px;
   grid-template-areas:
     'poster'
     'title'
