@@ -1,68 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import Home from './components/Home';
-import MovieDetail from './components/MovieDetail';
-import MostPopular from './components/MostPopular';
-// import Navbar from './components/Navbar';
-import Results from './components/Results';
-import Search from './components/Search';
-import TopRated from './components/TopRated';
+import GlobalStyle from './styles/GlobalStyles';
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home';
+import Movie from './pages/Movie';
+import Results from './pages/Results';
+import Page404 from './pages/Page404';
 
 function App() {
-  const [movieData, setMovieData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const getMovieData = (movies, searchTerm) => {
-    setMovieData(movies);
-    setSearchTerm(searchTerm)
-    console.log('from app', searchTerm)
-  };
-
   return (
-    <div>
-      {/* <Navbar movieData={getMovieData} searchTerm={searchTerm}/> */}
-
+    <>
+      <GlobalStyle />
+      <Navbar />
       <Switch>
-        <Route exact path="/top-rated">
-          <TopRated movieData={movieData} />
-        </Route>
-
-        <Route exact path="/most-popular">
-          <MostPopular movieData={movieData} />
-        </Route>
-
-        <Route exact path="/search">
-          <Search movieData={getMovieData} />
-        </Route>
-
-        <Route exact path="/results">
-          <Results movieData={movieData} searchTerm={searchTerm}/>
-        </Route>
-        
-        <Route exact path="/:movie_id" component={MovieDetail} />
-
-        <Route exact path="/">
-          <Home movieData={movieData} />
-        </Route>
-
-        <Route exact path="/home">
-          <Home movieData={movieData} />
-        </Route>
-
-        <Route
-          render={() => (
-            <h2 style={{ textAlign: 'center' }}>
-              Uh oh, page not Found!{' '}
-              <span role="img" aria-label="loudly crying face">
-                😭
-              </span>
-            </h2>
-          )}
-        />
-
+        <Route exact path="/results" component={Results} />
+        <Route exact path="/:movie_id" component={Movie} />
+        <Route exact path="/" component={Home} />
+        <Route component={Page404} />
       </Switch>
-    </div>
+    </>
   );
 }
 

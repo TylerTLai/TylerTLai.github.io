@@ -8,14 +8,14 @@ import rootReducer from './store/reducers';
 import 'normalize.css';
 // import './index.css';
 // import App from './App';
-import App2 from './App2';
+import App from './App';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App2 />
+      <App />
     </Router>
   </Provider>,
   document.getElementById('root')

@@ -1,4 +1,4 @@
-# React Movie Search 🍿
+# Film Findr Version 2 🍿
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/tylertlai?style=social)
 
