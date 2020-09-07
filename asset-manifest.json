@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/film-findr-2/static/js/main.ae80aab2.chunk.js",
-    "main.js.map": "/film-findr-2/static/js/main.ae80aab2.chunk.js.map",
+    "main.js": "/film-findr-2/static/js/main.e70b5618.chunk.js",
+    "main.js.map": "/film-findr-2/static/js/main.e70b5618.chunk.js.map",
     "runtime-main.js": "/film-findr-2/static/js/runtime-main.861d4d53.js",
     "runtime-main.js.map": "/film-findr-2/static/js/runtime-main.861d4d53.js.map",
     "static/css/2.d4311649.chunk.css": "/film-findr-2/static/css/2.d4311649.chunk.css",
-    "static/js/2.dad88d70.chunk.js": "/film-findr-2/static/js/2.dad88d70.chunk.js",
-    "static/js/2.dad88d70.chunk.js.map": "/film-findr-2/static/js/2.dad88d70.chunk.js.map",
+    "static/js/2.c082e4fb.chunk.js": "/film-findr-2/static/js/2.c082e4fb.chunk.js",
+    "static/js/2.c082e4fb.chunk.js.map": "/film-findr-2/static/js/2.c082e4fb.chunk.js.map",
     "index.html": "/film-findr-2/index.html",
-    "precache-manifest.93445ca90bbec8af62b787d6d0540146.js": "/film-findr-2/precache-manifest.93445ca90bbec8af62b787d6d0540146.js",
+    "precache-manifest.2e9c33a490a65019bc3f7847329cc451.js": "/film-findr-2/precache-manifest.2e9c33a490a65019bc3f7847329cc451.js",
     "service-worker.js": "/film-findr-2/service-worker.js",
     "static/css/2.d4311649.chunk.css.map": "/film-findr-2/static/css/2.d4311649.chunk.css.map",
-    "static/js/2.dad88d70.chunk.js.LICENSE.txt": "/film-findr-2/static/js/2.dad88d70.chunk.js.LICENSE.txt",
+    "static/js/2.c082e4fb.chunk.js.LICENSE.txt": "/film-findr-2/static/js/2.c082e4fb.chunk.js.LICENSE.txt",
     "static/media/logo.4b3ce967.svg": "/film-findr-2/static/media/logo.4b3ce967.svg",
     "static/media/poster.feaa40cc.svg": "/film-findr-2/static/media/poster.feaa40cc.svg",
     "static/media/slick-theme.css": "/film-findr-2/static/media/slick.f97e3bbf.svg"
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.861d4d53.js",
     "static/css/2.d4311649.chunk.css",
-    "static/js/2.dad88d70.chunk.js",
-    "static/js/main.ae80aab2.chunk.js"
+    "static/js/2.c082e4fb.chunk.js",
+    "static/js/main.e70b5618.chunk.js"
   ]
 }
