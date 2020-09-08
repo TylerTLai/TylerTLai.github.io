@@ -26,12 +26,14 @@ const StyledPrevArrow = styled.button`
     justify-content: center;
   }
 
-
   @media(max-width: 600px) {
-    padding-right: 15px;
-    width: 3rem;
-    height: 80px;
-    font-size: 3rem;
+      & ${'.prevArrow'} {
+        border: 2px solid ${colors.transparentWhite};
+        border-radius: 3px;
+        font-size: 30px;
+        height: 80px;
+      }
+    }
   }
 `;
 
