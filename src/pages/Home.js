@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
 import Carousel from '../components/Carousel/Carousel';
 import MovieList from '../components/MovieList/MovieList';
-import styled from 'styled-components';
 import theme from '../styles/theme';
 
 import {
@@ -12,8 +13,7 @@ import {
 } from '../store/actions/movie';
 
 const StyledMain = styled.main`
-  /* background-color: ${theme.colors.black}; */
-  /* flex: 1; */
+
 `;
 
 function Home({

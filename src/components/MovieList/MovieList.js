@@ -1,31 +1,28 @@
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
-import { Link } from 'react-router-dom';
-import { URL_IMG, IMG_SIZE_LARGE } from '../../const';
-import { connect } from 'react-redux';
+
+import Button from '../../styles/Button';
 import { fetchMovieDetails } from '../../store/actions/movie';
-import { motion } from 'framer-motion';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
-import theme from '../../styles/theme';
-import Button from '../../styles/Button';
 import { ReactComponent as AltPoster } from '../../assets/poster.svg';
+import theme from '../../styles/theme';
+import { URL_IMG, IMG_SIZE_LARGE } from '../../const';
 
 const { colors, fontSizes } = theme;
 
 const StyledMovieListContainer = styled.main`
-  padding: 0 0 0 50px;
+  padding: 0 0 0 0px;
 `;
 
 const StyledMovieSection = styled.div`
   background-color: ${colors.darkGray};
-  padding: 2em 1em 2em 1em;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+  border-radius: 3px;
+  padding: 2rem .5rem;
 `;
 
 const StyledMovieCategory = styled.h1`
@@ -89,10 +86,11 @@ function MovieList({ title, movies }) {
     const posterURL = URL_IMG + IMG_SIZE_LARGE + movie.poster_path;
 
     return (
-      <div key={movie.id}>
+      <StyledMovieListContainer key={movie.id}>
         <StyledMovie
           whileHover={{ backgroundColor: 'rgba(87, 103, 119, 0.5)' }}
         >
+
           {movie.poster_path ? (
             <Link to={'/' + movie.id}>
               <StyledMoviePoster
@@ -103,18 +101,21 @@ function MovieList({ title, movies }) {
           ) : (
             <AltPoster />
           )}
+
           <StyledMovieTitle>
             {movie.title.length <= 20
               ? movie.title
               : movie.title.slice(0, 22) + '...'}
           </StyledMovieTitle>
+
           <StyledMovieButton>
             <Link to={'/' + movie.id}>
               <Button>View Movie</Button>
             </Link>
           </StyledMovieButton>
+
         </StyledMovie>
-      </div>
+      </StyledMovieListContainer>
     );
   });
 
