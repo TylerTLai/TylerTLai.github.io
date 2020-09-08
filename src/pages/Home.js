@@ -28,6 +28,7 @@ function Home({
     getPopularMovies();
     getTopRatedMovies();
     getNowPlayingMovies();
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

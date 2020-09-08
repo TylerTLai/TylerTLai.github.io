@@ -121,6 +121,7 @@ function Movie({
     fetchMovie(movieId);
     fetchVideos(movieId);
     fetchCredits(movieId);
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [showModal, setShowModal] = useState(false);

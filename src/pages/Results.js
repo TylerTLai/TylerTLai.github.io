@@ -83,6 +83,7 @@ function Results({ searchResults, findMovie, history }) {
   useEffect(() => {
     let searchQuery = history.location.search.replace('?search=', '');
     findMovie(searchQuery);
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const movies = searchResults.map((movie) => {

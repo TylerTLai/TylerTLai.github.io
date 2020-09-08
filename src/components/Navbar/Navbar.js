@@ -2,20 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import theme from '../../styles/theme';
-// import SearchBar from '../SearchBar';
 import SearchBar from '../SearchBar/SearchBar';
 import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
 
 const StyledLogoContainer = styled.div`
-  /* border: 1px solid teal; */
+  border: 1px solid teal;
 `;
 
 const StyledSearchContainer = styled.div`
-  /* border: 1px solid pink; */
+  
 `;
 
 const StyledLinksContainer = styled.div`
-  /* border: 1px solid lime; */
+  border: 1px solid lime;
+
+  @media (max-width: 375px) {
+    display: none !important;
+  }
 `;
 
 const StyledNavbar = styled.nav`
@@ -25,7 +28,6 @@ const StyledNavbar = styled.nav`
   margin: 0;
   padding: 0.6em;
   display: grid;
-  /* font-size: 0.93em; */
   grid-template-columns: 0.5fr 2fr 0.5fr;
   grid-template-areas: 'logo search links';
 
@@ -72,7 +74,17 @@ const StyledNavbar = styled.nav`
         cursor: pointer;
       }
     }
-    /* font-size: .5em; */
+  
+@media (max-width: 375px) {
+
+    border: 2px solid red;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'logo'
+    'search'
+    'links'
+  }
+
   }
 `;
 
@@ -86,13 +98,13 @@ function Navbar() {
       </StyledLogoContainer>
 
       <StyledSearchContainer>
-        <SearchBar />
+        <SearchBar className='searchBar' />
       </StyledSearchContainer>
 
       <StyledLinksContainer>
-        {/* <NavLink to="login">
-          <button>Sign In</button>
-        </NavLink> */}
+        <NavLink to="login">
+          <p>Sign In</p>
+        </NavLink>
       </StyledLinksContainer>
     </StyledNavbar>
   );
