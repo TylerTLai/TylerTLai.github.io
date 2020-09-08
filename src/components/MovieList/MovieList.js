@@ -23,6 +23,11 @@ const StyledMovieSection = styled.div`
   background-color: ${colors.darkGray};
   border-radius: 3px;
   padding: 2rem .5rem;
+
+  @media(max-width: 614px) {
+    padding: .5rem 0;
+  }
+
 `;
 
 const StyledMovieCategory = styled.h1`
@@ -48,11 +53,22 @@ const StyledMovieTitle = styled.p`
   font-size: ${fontSizes.md};
   text-transform: uppercase;
   text-align: left;
+
+   @media(max-width: 425px) {
+    font-size: ${fontSizes.sm};
+  }
+
 `;
 
 const StyledMovieButton = styled.div`
   & button {
     width: 100%;
+  }
+
+  @media(max-width: 425px) {
+    & button {
+    font-size: ${fontSizes.xs};
+    }
   }
 `;
 
@@ -79,6 +95,20 @@ const StyledMovie = styled(motion.div)`
   & ${StyledMovieButton} {
     grid-area: button;
   }
+
+  @media(max-width: 425px) {
+    grid-template-rows: 1fr;
+    padding: .3rem;
+
+  & ${StyledMovieTitle} {
+    display: none;
+  }
+  & ${StyledMovieButton} {
+    display: none;
+  }
+
+  }
+
 `;
 
 function MovieList({ title, movies }) {
@@ -134,8 +164,6 @@ function MovieList({ title, movies }) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -147,10 +175,10 @@ function MovieList({ title, movies }) {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 425,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
