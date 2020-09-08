@@ -23,7 +23,7 @@ const StyledMovieSection = styled.div`
   background-color: ${colors.darkGray};
   border-radius: 3px;
   padding: 2rem .5rem;
-
+ 
   @media(max-width: 614px) {
     padding: .5rem 0;
   }
@@ -35,10 +35,17 @@ const StyledMovieCategory = styled.h1`
   margin-top: 75px;
 
   &:before {
+    position: relative;
+    bottom: 2px;
     content: '|';
     color: ${colors.orange};
     position: relative;
     left: -1px;
+  }
+
+  @media(max-width: 425px) {
+    margin-top: 30px;
+    font-size: ${fontSizes.lg};
   }
 `;
 
@@ -179,6 +186,7 @@ function MovieList({ title, movies }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: false,
         },
       },
     ],
