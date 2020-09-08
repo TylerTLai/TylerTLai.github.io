@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import moment from 'moment';
 import Slider from 'react-slick';
+import styled from 'styled-components';
 
-import theme from '../../styles/theme';
 import Button from '../../styles/Button';
+import { fetchUpcomingMovies, fetchMovieDetails } from '../../store/actions/movie';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
+import theme from '../../styles/theme';
 import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../../const';
 
-import {
-  fetchUpcomingMovies,
-  fetchMovieDetails,
-} from '../../store/actions/movie';
+const {colors, fontSizes} = theme;
 
 const StyledHeader = styled.header`
   height: 570px;
@@ -34,13 +32,13 @@ const StyledMovieText = styled.div`
   top: 65%;
   left: 60%;
   transform: translate(-50%, -50%);
-  color: ${theme.colors.white};
+  color: ${colors.white};
 
   & h1 {
     margin-top: 0;
     margin-bottom: 0.5em;
-    color: ${theme.colors.white};
-    font-size: 2.5em;
+    color: ${colors.white};
+    font-size: ${fontSizes.xl};
     font-weight: bolder;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -49,13 +47,20 @@ const StyledMovieText = styled.div`
   & h3 {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 1em;
+    font-size: ${fontSizes.md};
     letter-spacing: 2px;
     text-decoration: underline;
   }
 
-  & button {
-    border: 1px solid ${theme.colors.white};
+  @media(max-width: 425px) {
+    & h1 {
+      font-size: ${fontSizes.lg};
+    }
+  }
+
+  @media(max-width: 375px) {
+    & h1 {
+      font-size: ${fontSizes.lg};
     }
   }
 `;
@@ -77,7 +82,7 @@ function Carousel({ movies, getMovies, fetchMovie }) {
       <div key={movie.id}>
         <StyledHeader imgURL={backdropURL}>
           <StyledMovieText>
-            <h3>COMING SOON</h3>
+            <h3>NEW MOVIE</h3>
             <h1>{movie.title}</h1>
             <p>
               Release Date: <br />
