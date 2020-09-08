@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import styled from 'styled-components';
-// import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../const';
@@ -11,12 +10,9 @@ import {
   fetchCredits,
   fetchVideos,
 } from '../store/actions/movie';
-// import { FaStar } from 'react-icons/fa';
 import { BsArrowLeft } from 'react-icons/bs';
 import theme from '../styles/theme';
 import Button from '../styles/Button';
-// import { Palette } from 'color-thief-react';
-// import { usePalette } from 'color-thief-react';
 import Modal from '../components/Modal/Modal';
 import { ReactComponent as AltPoster } from '../assets/poster.svg';
 
@@ -25,8 +21,6 @@ const { colors, fontSizes } = theme;
 const StyledDetails = styled.div`
   color: ${colors.white};
   padding: 2em;
-  /* max-width: 370px;
-  word-wrap: break-word; */
 
   & .backArrow {
     color: ${colors.gray};
@@ -130,20 +124,11 @@ function Movie({
   }, []);
 
   const [showModal, setShowModal] = useState(false);
-  // const [star, setStar] = useState(1);
 
   const trailerKey =
     videos !== 'undefined' && videos.length > 0
       ? videos.filter((video) => video.site === 'YouTube')[0].key
       : 'no key';
-
-  // const genres = [];
-
-  // const casts = credits.cast
-  //   .slice(0, 8)
-  //   .filter((cast) => cast.profile_path !== null);
-
-  // const casts = credits.cast.map(cast => console.log(cast))
 
   const backdropURL =
     URL_IMG + BACKDROP_SIZE_ORIGINAL + movieDetails.backdrop_path;
@@ -170,29 +155,6 @@ function Movie({
       <StyledTopContainer>
         <StyledDetails>
           <BsArrowLeft className="backArrow" onClick={history.goBack} size={55} />
-
-          {/* <Palette
-            src={backdropURL}
-            crossOrigin="anonymous"
-            format="hex"
-            colorCount={4}
-          >
-            {({ data, loading }) => {
-              if (loading) return 'loading';
-              return (
-                <div>
-                  <h1 style={{ color: data[1] }}>{movieDetails.title}</h1>
-                  <ul>
-                    {data.map((color, index) => (
-                      <li key={index} style={{ color: color }}>
-                        <strong>{color}</strong>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            }}
-          </Palette> */}
 
           <h1 style={{ color: `${colors.white}` }}>{movieDetails.title}</h1>
           
