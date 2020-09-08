@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import theme from '../../styles/theme';
 import SearchBar from '../SearchBar/SearchBar';
 import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
 
