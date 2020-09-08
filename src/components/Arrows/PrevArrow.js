@@ -17,20 +17,19 @@ const StyledPrevArrow = styled.button`
   & ${'.prevArrow'} {
     align-items: center;
     background: ${colors.transparentBlack};
-    border: 5px solid ${colors.transparentWhite};
+    border: 3px solid ${colors.transparentWhite};
     border-radius: 5px;
     color: ${colors.white};
     display: flex;
-    font-size: 50px;
+    font-size: ${fontSizes.xl};
     height: 100px;
     justify-content: center;
   }
 
-  @media(max-width: 600px) {
+  @media(max-width: 768px) {
       & ${'.prevArrow'} {
         border: 2px solid ${colors.transparentWhite};
-        border-radius: 3px;
-        font-size: 30px;
+        font-size: ${fontSizes.lg};
         height: 80px;
       }
     }
