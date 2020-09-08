@@ -16,7 +16,7 @@ import { URL_IMG, IMG_SIZE_LARGE } from '../../const';
 const { colors, fontSizes } = theme;
 
 const StyledMovieListContainer = styled.main`
-  padding: 0 0 0 0px;
+  padding: 0;
 `;
 
 const StyledMovieSection = styled.div`
@@ -63,7 +63,7 @@ const StyledMovie = styled(motion.div)`
   padding: 20px 10px 0 10px;
   border-radius: 3px;
   display: grid;
-  grid-template-rows: 2fr 0.5fr 0.5fr;
+  grid-template-rows: 2fr 0.5fr 60px;
   grid-template-columns: 1fr;
   grid-template-areas:
     'poster'
