@@ -4,18 +4,17 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import moment from 'moment';
 import Slider from 'react-slick';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
+
 import theme from '../../styles/theme';
 import Button from '../../styles/Button';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
+import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../../const';
 
 import {
   fetchUpcomingMovies,
   fetchMovieDetails,
 } from '../../store/actions/movie';
-import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../../const';
 
 const StyledHeader = styled.header`
   height: 570px;
@@ -23,6 +22,10 @@ const StyledHeader = styled.header`
   margin-top: 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${({ imgURL }) => imgURL});
+
+  @media(max-width: 600px) {
+    height: 350px;
+  }
 `;
 
 const StyledMovieText = styled.div`
@@ -58,7 +61,6 @@ const StyledMovieText = styled.div`
 `;
 
 function Carousel({ movies, getMovies, fetchMovie }) {
-  // console.log('carousel', movies);
 
   useEffect(() => {
     getMovies();
@@ -69,7 +71,6 @@ function Carousel({ movies, getMovies, fetchMovie }) {
 
     const handleClick = (id) => {
       fetchMovie(id);
-      console.log('from carousel', id);
     };
 
     return (
@@ -94,7 +95,7 @@ function Carousel({ movies, getMovies, fetchMovie }) {
   const settings = {
     autoplay: true,
     autoplaySpeed: 3000,
-    dots: true,
+    dots: false,
     draggable: true,
     infinite: true,
     slidesToShow: 1,
