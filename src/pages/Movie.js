@@ -18,7 +18,8 @@ const { colors, fontSizes } = theme;
 
 const StyledDetails = styled.div`
   color: ${colors.white};
-  padding: 2em;
+  padding-right: 2rem;
+  /* border: 2px solid red; */
 
   & .backArrow {
     color: ${colors.gray};
@@ -73,16 +74,17 @@ const StyledBackdrop = styled.div`
     url(${({ imgURL }) => imgURL});
   background-size: cover;
   background-position: center;
-  width: 65vw;
+  width: 100%;
   background-repeat: no-repeat;
 `;
 
 const StyledTopContainer = styled.div`
   background-color: ${colors.black};
   display: grid;
-  grid-template-columns: 1fr, 2fr;
+  grid-template-columns: 375px;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   grid-template-areas: 'details backdrop';
-  flex: 1;
 
   & ${StyledDetails} {
     grid-area: details;
@@ -90,6 +92,25 @@ const StyledTopContainer = styled.div`
 
   & ${StyledBackdrop} {
     grid-area: backdrop;
+  }
+
+  @media (max-width: 990px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+      'backdrop'
+      'details';
+  }
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+      'backdrop'
+      'details';
   }
 `;
 

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Carousel from '../components/Carousel/Carousel';
 import MovieList from '../components/MovieList/MovieList';
-import theme from '../styles/theme';
 
 import {
   fetchMostPopularMovies,
