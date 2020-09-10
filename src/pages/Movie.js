@@ -16,6 +16,38 @@ import { ReactComponent as AltPoster } from '../assets/poster.svg';
 
 const { colors, fontSizes } = theme;
 
+const StyledMovieTitle = styled.h1`
+  font-size: ${fontSizes.xl};
+  color: ${colors.white};
+  text-transform: uppercase;
+
+  @media(max-width: 425px) {
+    font-size: ${fontSizes.lger};
+  }
+
+`;
+
+const StyledMovieTagLine = styled.h2`
+  color: ${colors.orange};
+  font-size: ${fontSizes.lg};
+
+  @media (max-width: 425px) {
+    font-size: ${fontSizes.md};
+  }
+`;
+
+const StyledMoviePlot = styled.h3`
+  color: ${colors.gray};
+  font-size: ${fontSizes.md};
+
+  & p {
+    color: ${colors.white};
+    font-size: ${fontSizes.xs};
+    letter-spacing: 2px;
+    line-height: 2;
+  }
+`;
+
 const StyledDetails = styled.div`
   color: ${colors.white};
   padding-right: 2rem;
@@ -24,6 +56,7 @@ const StyledDetails = styled.div`
   & .backArrow {
     color: ${colors.gray};
     transition: 0.1s ease-in-out;
+    font-size: 55px;
 
     &:hover {
       color: ${colors.lightTeal};
@@ -31,29 +64,18 @@ const StyledDetails = styled.div`
     }
   }
 
-  & h1 {
-    font-size: ${fontSizes.xl};
-    color: ${colors.white};
-    text-transform: uppercase;
+  @media (max-width: 900px) {
+    padding: 2rem;
   }
+  @media (max-width: 425px) {
+    padding: 1rem;
 
-  & h2 {
-    color: ${colors.orange};
-    font-size: ${fontSizes.lg};
-  }
-
-  & h3 {
-    color: ${colors.gray};
-
-    & p {
-      color: ${colors.orange};
-      font-size: ${fontSizes.xs};
-      letter-spacing: 2px;
+    & .backArrow {
+      font-size: 40px;
     }
   }
-
-  & p {
-    line-height: 2;
+  @media (max-width: 320px) {
+    padding: .5rem;
   }
 `;
 
@@ -62,6 +84,24 @@ const StyledInfo = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-gap: 1px;
+
+  & h3 {
+    color: ${colors.gray};
+
+    & p {
+      color: ${colors.white};
+    }
+  }
+
+  @media (max-width: 425px) {
+    & h3 {
+      font-size: ${fontSizes.sm};
+
+      & p {
+        font-size: ${fontSizes.xs};
+      }
+    }
+  }
 `;
 
 const StyledBackdrop = styled.div`
@@ -76,6 +116,10 @@ const StyledBackdrop = styled.div`
   background-position: center;
   width: 100%;
   background-repeat: no-repeat;
+
+  @media (max-width: 990px) {
+    background-image: url(${({ imgURL }) => imgURL});
+  }
 `;
 
 const StyledTopContainer = styled.div`
@@ -140,7 +184,7 @@ function Movie({
     fetchMovie(movieId);
     fetchVideos(movieId);
     fetchCredits(movieId);
-       // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [showModal, setShowModal] = useState(false);
@@ -174,13 +218,16 @@ function Movie({
       />
       <StyledTopContainer>
         <StyledDetails>
-          <BsArrowLeft className="backArrow" onClick={history.goBack} size={55} />
+          <BsArrowLeft
+            className="backArrow"
+            onClick={history.goBack}
+          />
 
-          <h1 style={{ color: `${colors.white}` }}>{movieDetails.title}</h1>
-          
-          <h2>
+          <StyledMovieTitle>{movieDetails.title}</StyledMovieTitle>
+
+          <StyledMovieTagLine>
             <em>{movieDetails.tagline}</em>
-          </h2>
+          </StyledMovieTagLine>
 
           <Button onClick={showTrailer}>WATCH TRAILER</Button>
 
@@ -202,9 +249,10 @@ function Movie({
             </h3>
           </StyledInfo>
 
-          <h3>Plot</h3>
-          <p>{movieDetails.overview}</p>
-
+          <StyledMoviePlot>
+            Plot
+            <p>{movieDetails.overview}</p>
+          </StyledMoviePlot>
         </StyledDetails>
 
         {movieDetails.backdrop_path ? (
@@ -215,7 +263,6 @@ function Movie({
         ) : (
           <AltPoster />
         )}
-
       </StyledTopContainer>
 
       <StyledBottomContainer>

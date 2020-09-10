@@ -5,6 +5,7 @@ const { colors } = theme;
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600;700&display=swap'); 
+    
     body {
         padding: 0 30px;
         font-family: 'Montserrat', sans-serif;
@@ -13,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
         h1 {
             font-family: "Oswald", sans-serif;
         } 
+
+        @media(max-width: 900px) {
+            padding: 0;
+        }   
     }
 `;
 
