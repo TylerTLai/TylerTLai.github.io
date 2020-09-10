@@ -22,12 +22,11 @@ const StyledMovieListContainer = styled.main`
 const StyledMovieSection = styled.div`
   background-color: ${colors.darkGray};
   border-radius: 3px;
-  padding: 2rem .5rem;
- 
-  @media(max-width: 614px) {
-    padding: .5rem 0;
-  }
+  padding: 2rem 0.5rem;
 
+  @media (max-width: 614px) {
+    padding: 0.5rem 0;
+  }
 `;
 
 const StyledMovieCategory = styled.h1`
@@ -43,7 +42,7 @@ const StyledMovieCategory = styled.h1`
     left: -1px;
   }
 
-  @media(max-width: 425px) {
+  @media (max-width: 425px) {
     margin-top: 30px;
     font-size: ${fontSizes.lg};
   }
@@ -63,10 +62,15 @@ const StyledMovieTitle = styled.p`
   text-transform: uppercase;
   text-align: left;
 
-   @media(max-width: 425px) {
+  @media (max-width: 425px) {
     font-size: ${fontSizes.sm};
   }
+`;
 
+const StyledMovieRating = styled.p`
+  color: ${colors.white};
+  font-size: ${fontSizes.sm};
+  text-align: left;
 `;
 
 const StyledMovieButton = styled.div`
@@ -74,9 +78,9 @@ const StyledMovieButton = styled.div`
     width: 100%;
   }
 
-  @media(max-width: 425px) {
+  @media (max-width: 425px) {
     & button {
-    font-size: ${fontSizes.xs};
+      font-size: ${fontSizes.xs};
     }
   }
 `;
@@ -88,10 +92,11 @@ const StyledMovie = styled(motion.div)`
   padding: 20px 10px 0 10px;
   border-radius: 3px;
   display: grid;
-  grid-template-rows: 2fr 0.5fr 60px;
+  grid-template-rows: 2fr 30px 0.5fr 60px;
   grid-template-columns: 1fr;
   grid-template-areas:
     'poster'
+    'rating'
     'title'
     'button';
 
@@ -101,23 +106,27 @@ const StyledMovie = styled(motion.div)`
   & ${StyledMovieTitle} {
     grid-area: title;
   }
+  & ${StyledMovieRating} {
+    grid-area: rating;
+  }
   & ${StyledMovieButton} {
     grid-area: button;
   }
 
-  @media(max-width: 425px) {
+  @media (max-width: 425px) {
     grid-template-rows: 1fr;
-    padding: .3rem;
+    padding: 0.3rem;
 
-  & ${StyledMovieTitle} {
-    display: none;
+    & ${StyledMovieTitle} {
+      display: none;
+    }
+    & ${StyledMovieRating} {
+      display: none;
+    }
+    & ${StyledMovieButton} {
+      display: none;
+    }
   }
-  & ${StyledMovieButton} {
-    display: none;
-  }
-
-  }
-
 `;
 
 function MovieList({ title, movies }) {
@@ -145,6 +154,12 @@ function MovieList({ title, movies }) {
               ? movie.title.slice(0, 22) + '...'
               : movie.title}
           </StyledMovieTitle>
+
+          <StyledMovieRating>
+            {movie.vote_average
+              ? "Rating: " + movie.vote_average + ' | 10'
+              : '----'}
+          </StyledMovieRating>
 
           <StyledMovieButton>
             <Link to={'/' + movie.id}>
