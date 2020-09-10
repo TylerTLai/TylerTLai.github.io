@@ -41,6 +41,12 @@ function SearchBar({ findMovie }) {
     e.preventDefault();
     findMovie(query);
 
+
+    if (e.key === "Enter") {
+      console.log('enter was hit');
+      e.target.blur();
+    }
+
     history.push({
       pathname: '/results',
       search: '?search=' + query,
@@ -50,6 +56,7 @@ function SearchBar({ findMovie }) {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+
   };
 
   return (

@@ -46,7 +46,7 @@ function Navbar() {
 
       <StyledLogoContainer>
         <NavLink to="/">
-          <ReactLogo style={{ height: '39px'}} />
+          <ReactLogo style={{ height: '45px'}} />
         </NavLink>
       </StyledLogoContainer>
 

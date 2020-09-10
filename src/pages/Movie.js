@@ -253,7 +253,7 @@ function Movie({
             onClick={showTrailer}
           ></StyledBackdrop>
         ) : (
-          <AltPoster />
+          <AltPoster style={{maxHeight: '400px'}} />
         )}
       </StyledTopContainer>
 
