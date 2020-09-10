@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import GlobalStyle from './styles/GlobalStyles';
-import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home';
-import Movie from './pages/Movie';
-import Results from './pages/Results';
-import Page404 from './pages/Page404';
+import GlobalStyle from '../../styles/GlobalStyles';
+import Navbar from '../Navbar/Navbar';
+import Home from '../../pages/Home';
+import Movie from '../../pages/Movie';
+import Results from '../../pages/Results';
+import Page404 from '../../pages/Page404';
 
 function App() {
   return (
