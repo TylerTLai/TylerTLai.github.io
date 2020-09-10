@@ -8,7 +8,7 @@ import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../const';
 import Button from '../styles/Button';
 import { fetchMovieDetails, fetchCredits, fetchVideos } from '../store/actions/movie';
 import Modal from '../components/Modal/Modal';
-import { ReactComponent as AltPoster } from '../assets/poster.svg';
+import { ReactComponent as AltBackdrop } from '../assets/backdropImage.svg';
 import theme from '../styles/theme';
 
 const { colors, fontSizes } = theme;
@@ -253,7 +253,7 @@ function Movie({
             onClick={showTrailer}
           ></StyledBackdrop>
         ) : (
-          <AltPoster style={{maxHeight: '400px'}} />
+          <AltBackdrop style={{ maxHeight: '400px' }} />
         )}
       </StyledTopContainer>
 
