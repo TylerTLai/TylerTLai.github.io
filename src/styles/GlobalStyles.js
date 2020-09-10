@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600;700&display=swap'); 
     
     body {
-        padding: 0 30px;
+        padding: 0 2rem;
         font-family: 'Montserrat', sans-serif;
         background-color: ${colors.black};
 

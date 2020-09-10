@@ -6,13 +6,16 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import Button from '../../styles/Button';
-import { fetchUpcomingMovies, fetchMovieDetails } from '../../store/actions/movie';
+import {
+  fetchUpcomingMovies,
+  fetchMovieDetails,
+} from '../../store/actions/movie';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
 import theme from '../../styles/theme';
 import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../../const';
 
-const {colors, fontSizes} = theme;
+const { colors, fontSizes } = theme;
 
 const StyledHeader = styled.header`
   height: 570px;
@@ -21,7 +24,11 @@ const StyledHeader = styled.header`
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${({ imgURL }) => imgURL});
 
-  @media(max-width: 600px) {
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 600px) {
     height: 350px;
   }
 `;
@@ -52,13 +59,13 @@ const StyledMovieText = styled.div`
     text-decoration: underline;
   }
 
-  @media(max-width: 425px) {
+  @media (max-width: 425px) {
     & h1 {
       font-size: ${fontSizes.lg};
     }
   }
 
-  @media(max-width: 375px) {
+  @media (max-width: 375px) {
     & h1 {
       font-size: ${fontSizes.lg};
     }
@@ -66,7 +73,6 @@ const StyledMovieText = styled.div`
 `;
 
 function Carousel({ movies, getMovies, fetchMovie }) {
-
   useEffect(() => {
     getMovies();
   }, [getMovies]);
