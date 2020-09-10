@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../const';
-import {
-  fetchMovieDetails,
-  fetchCredits,
-  fetchVideos,
-} from '../store/actions/movie';
-import { BsArrowLeft } from 'react-icons/bs';
-import theme from '../styles/theme';
+
 import Button from '../styles/Button';
+import { fetchMovieDetails, fetchCredits, fetchVideos } from '../store/actions/movie';
 import Modal from '../components/Modal/Modal';
 import { ReactComponent as AltPoster } from '../assets/poster.svg';
+import theme from '../styles/theme';
 
 const { colors, fontSizes } = theme;
 
@@ -21,10 +18,9 @@ const StyledMovieTitle = styled.h1`
   color: ${colors.white};
   text-transform: uppercase;
 
-  @media(max-width: 425px) {
+  @media (max-width: 425px) {
     font-size: ${fontSizes.lger};
   }
-
 `;
 
 const StyledMovieTagLine = styled.h2`
@@ -51,7 +47,6 @@ const StyledMoviePlot = styled.h3`
 const StyledDetails = styled.div`
   color: ${colors.white};
   padding-right: 2rem;
-  /* border: 2px solid red; */
 
   & .backArrow {
     color: ${colors.gray};
@@ -75,12 +70,12 @@ const StyledDetails = styled.div`
     }
   }
   @media (max-width: 320px) {
-    padding: .5rem;
+    padding: 0.5rem;
   }
 `;
 
 const StyledInfo = styled.div`
-  margin-top: 1em;
+  margin-top: 1rem;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 1px;
@@ -162,7 +157,7 @@ const StyledBottomContainer = styled.div`
   display: grid;
   background-color: ${colors.black};
   color: ${colors.white};
-  padding: 2em;
+  padding: 2rem;
   flex: 1;
 
   & h1 {
@@ -218,10 +213,7 @@ function Movie({
       />
       <StyledTopContainer>
         <StyledDetails>
-          <BsArrowLeft
-            className="backArrow"
-            onClick={history.goBack}
-          />
+          <BsArrowLeft className="backArrow" onClick={history.goBack} />
 
           <StyledMovieTitle>{movieDetails.title}</StyledMovieTitle>
 

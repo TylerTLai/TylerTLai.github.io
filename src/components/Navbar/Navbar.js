@@ -1,8 +1,9 @@
+import { NavLink } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import SearchBar from '../SearchBar/SearchBar';
+
 import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
+import SearchBar from '../SearchBar/SearchBar';
 
 const StyledLogoContainer = styled.div`
   display: grid;

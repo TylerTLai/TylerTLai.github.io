@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { FiSearch } from 'react-icons/fi';
 import { connect } from 'react-redux';
-import { searchMovie } from '../../store/actions/movie';
-import { useHistory } from 'react-router-dom';
-import theme from '../../styles/theme';
+import { FiSearch } from 'react-icons/fi';
+import styled from 'styled-components';
+import React, { useState } from 'react';
+
 import Button from '../../styles/Button';
+import { searchMovie } from '../../store/actions/movie';
+import theme from '../../styles/theme';
+import { useHistory } from 'react-router-dom';
+
+const {colors, fontSizes} = theme;
 
 const StyledSearchContainer = styled.form`
   display: flex;
@@ -20,16 +23,16 @@ const StyledSearchContainer = styled.form`
 `;
 
 const StyledSearchInput = styled.input`
-  font-size: 0.9em;
+  font-size: ${fontSizes.md};
   height: 30px;
-  padding: 0.15em 0.8em;
+  padding: 0.15rem 0.8rem;
   border: 0;
   border-radius: 3px 0 0 3px;
-  width: 70%;
-  background-color: ${theme.colors.white};
+  width: 90%;
+  background-color: ${colors.white};
 `;
 
-function SearchBar({ movie, findMovie }) {
+function SearchBar({ findMovie }) {
   
   const history = useHistory();
   const [query, setQuery] = useState('');
@@ -66,16 +69,10 @@ function SearchBar({ movie, findMovie }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    movie: state.getMovies.searchedMovie,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     findMovie: (searchTerm) => dispatch(searchMovie(searchTerm)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);

@@ -1,8 +1,11 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import styled from 'styled-components';
-import theme from '../../styles/theme';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
+
+import theme from '../../styles/theme';
+
+const { colors } = theme;
 
 const StyledBackdrop = styled(motion.div)`
   position: fixed;
@@ -17,9 +20,42 @@ const StyledBackdrop = styled(motion.div)`
 const StyledModal = styled(motion.div)`
   max-width: 70vw;
   margin: 0 auto;
-  padding: 1.5em;
+  padding: 1.5rem;
   background: ${theme.colors.black};
   border-radius: 10px;
+
+  @media (max-width: 900px) {
+    max-width: 90vw;
+    padding: 0.5rem;
+    border-radius: 7px;
+  }
+`;
+
+const StyledCloseButton = styled.div`
+  position: absolute;
+  top: -26px;
+  right: -26px;
+  color: ${colors.white};
+
+  & .closeButton {
+    font-size: 30px;
+  }
+
+  @media (max-width: 900px) {
+    top: -15px;
+    right: -13px;
+    & .closeButton {
+      font-size: 25px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    top: -10px;
+    right: -11px;
+    & .closeButton {
+      font-size: 20px;
+    }
+  }
 `;
 
 const StyledVideoWrapper = styled.div`
@@ -83,17 +119,10 @@ const Modal = ({ showModal, setShowModal, trailerKey }) => {
                 allowFullScreen
                 modestbranding="1"
               ></iframe>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '-26px',
-                  right: '-26px',
-                  color: '#fff',
-                }}
-                onClick={() => setShowModal(false)}
-              >
-                <AiFillCloseCircle size={30} />
-              </div>
+
+              <StyledCloseButton onClick={() => setShowModal(false)}>
+                <AiFillCloseCircle className="closeButton" />
+              </StyledCloseButton>
             </StyledVideoWrapper>
           </StyledModal>
         </StyledBackdrop>
