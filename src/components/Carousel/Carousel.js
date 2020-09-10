@@ -24,10 +24,6 @@ const StyledHeader = styled.header`
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${({ imgURL }) => imgURL});
 
-  @media (max-width: 900px) {
-    padding: 1rem;
-  }
-
   @media (max-width: 600px) {
     height: 350px;
   }

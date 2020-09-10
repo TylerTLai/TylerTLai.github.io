@@ -12,7 +12,10 @@ import {
 } from '../store/actions/movie';
 
 const StyledMain = styled.main`
-
+  @media (max-width: 900px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 function Home({

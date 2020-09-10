@@ -53,6 +53,8 @@ const StyledMoviePoster = styled.img`
   border-radius: 2px;
   opacity: 1;
   width: 100%;
+  min-height: 258px;
+  max-height: 258px;
 `;
 
 const StyledMovieTitle = styled.p`
@@ -127,7 +129,6 @@ function MovieList({ title, movies }) {
         <StyledMovie
           whileHover={{ backgroundColor: 'rgba(87, 103, 119, 0.5)' }}
         >
-
           {movie.poster_path ? (
             <Link to={'/' + movie.id}>
               <StyledMoviePoster
@@ -136,13 +137,13 @@ function MovieList({ title, movies }) {
               />
             </Link>
           ) : (
-            <AltPoster />
+            <AltPoster style={{ maxHeight: '258px' }} />
           )}
 
           <StyledMovieTitle>
-            {movie.title.length <= 20
-              ? movie.title
-              : movie.title.slice(0, 22) + '...'}
+            {movie.title.length > 25
+              ? movie.title.slice(0, 22) + '...'
+              : movie.title}
           </StyledMovieTitle>
 
           <StyledMovieButton>
@@ -150,7 +151,6 @@ function MovieList({ title, movies }) {
               <Button>View Movie</Button>
             </Link>
           </StyledMovieButton>
-
         </StyledMovie>
       </StyledMovieListContainer>
     );

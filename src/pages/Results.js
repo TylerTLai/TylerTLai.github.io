@@ -50,6 +50,8 @@ const StyledMoviePoster = styled.img`
   border-radius: 2px;
   opacity: 1;
   width: 100%;
+  min-height: 258px;
+  max-height: 258px;
 `;
 
 const StyledMovieTitle = styled.p`
@@ -123,9 +125,9 @@ function Results({ searchResults, findMovie, history }) {
               />
             </Link>
           ) : (
-            <AltPoster />
+            <AltPoster style={{maxHeight: '258px'}}/>
           )}
-          <StyledMovieTitle>{movie.title}</StyledMovieTitle>
+          <StyledMovieTitle>{movie.title.length > 25 ? movie.title.slice(0, 22) + "..." : movie.title}</StyledMovieTitle>
           <StyledMovieButton>
             <Link to={'/' + movie.id}>
               <Button>View Movie</Button>
