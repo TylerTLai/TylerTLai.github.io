@@ -19,7 +19,7 @@
 ## Features
 
 - User is able to search for movies via TMDB api.
-- Mobile responsive [coming soon]
+- Mobile responsive
 
 ## Using React Movie Search
 
