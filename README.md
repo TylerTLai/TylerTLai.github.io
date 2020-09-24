@@ -6,6 +6,12 @@
 
 👉 [Live Demo](https://tylertlai.github.io/film-findr-2/#/)
 
+![demo](https://raw.githubusercontent.com/TylerTLai/film-findr-2/master/src/assets/demo.png)
+
+![demo](https://raw.githubusercontent.com/TylerTLai/film-findr-2/master/src/assets/demo2.png)
+
+![demo](https://raw.githubusercontent.com/TylerTLai/film-findr-2/master/src/assets/demo3.png)
+
 ## Technology used
 
 - React
