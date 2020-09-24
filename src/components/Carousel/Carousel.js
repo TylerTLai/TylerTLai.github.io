@@ -68,10 +68,10 @@ const StyledMovieText = styled.div`
   }
 `;
 
-function Carousel({ movies, getMovies, fetchMovie }) {
+function Carousel({ movies, movieReducer, fetchMovie }) {
   useEffect(() => {
-    getMovies();
-  }, [getMovies]);
+    movieReducer();
+  }, [movieReducer]);
 
   const topMovies = movies.map((movie) => {
     const backdropURL = URL_IMG + BACKDROP_SIZE_ORIGINAL + movie.backdrop_path;
@@ -122,13 +122,13 @@ function Carousel({ movies, getMovies, fetchMovie }) {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.getMovies.upcoming,
+    movies: state.movieReducer.upcoming,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getMovies: () => dispatch(fetchUpcomingMovies()),
+    movieReducer: () => dispatch(fetchUpcomingMovies()),
     fetchMovie: (movieId) => dispatch(fetchMovieDetails(movieId)),
   };
 };

@@ -30,7 +30,7 @@ function Home({
     getPopularMovies();
     getTopRatedMovies();
     getNowPlayingMovies();
-       // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -45,9 +45,9 @@ function Home({
 
 const mapStateToProps = (state) => {
   return {
-    mostPopularMovies: state.getMovies.mostPopular,
-    topRatedMovies: state.getMovies.topRated,
-    nowPlayingMovies: state.getMovies.nowPlaying,
+    mostPopularMovies: state.movieReducer.mostPopular,
+    topRatedMovies: state.movieReducer.topRated,
+    nowPlayingMovies: state.movieReducer.nowPlaying,
   };
 };
 

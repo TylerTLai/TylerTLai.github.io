@@ -6,7 +6,11 @@ import styled from 'styled-components';
 import { URL_IMG, BACKDROP_SIZE_ORIGINAL } from '../const';
 
 import Button from '../styles/Button';
-import { fetchMovieDetails, fetchCredits, fetchVideos } from '../store/actions/movie';
+import {
+  fetchMovieDetails,
+  fetchCredits,
+  fetchVideos,
+} from '../store/actions/movie';
 import Modal from '../components/Modal/Modal';
 import { ReactComponent as AltBackdrop } from '../assets/backdropImage.svg';
 import theme from '../styles/theme';
@@ -268,9 +272,9 @@ function Movie({
 
 const mapStateToProps = (state) => {
   return {
-    movieDetails: state.getMovies.movieDetails,
-    credits: state.getMovies.credits,
-    videos: state.getMovies.videos,
+    movieDetails: state.movieReducer.movieDetails,
+    credits: state.movieReducer.credits,
+    videos: state.movieReducer.videos,
   };
 };
 

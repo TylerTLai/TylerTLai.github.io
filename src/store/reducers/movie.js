@@ -20,7 +20,7 @@ const initialState = {
   searchedMovie: [],
 };
 
-export const getMovies = (state = initialState, action) => {
+export const movieReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_UPCOMING_MOVIES:
       return { ...state, upcoming: action.payload };

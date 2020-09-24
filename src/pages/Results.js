@@ -125,9 +125,13 @@ function Results({ searchResults, findMovie, history }) {
               />
             </Link>
           ) : (
-            <AltPoster style={{maxHeight: '258px'}}/>
+            <AltPoster style={{ maxHeight: '258px' }} />
           )}
-          <StyledMovieTitle>{movie.title.length > 25 ? movie.title.slice(0, 22) + "..." : movie.title}</StyledMovieTitle>
+          <StyledMovieTitle>
+            {movie.title.length > 25
+              ? movie.title.slice(0, 22) + '...'
+              : movie.title}
+          </StyledMovieTitle>
           <StyledMovieButton>
             <Link to={'/' + movie.id}>
               <Button>View Movie</Button>
@@ -150,7 +154,7 @@ function Results({ searchResults, findMovie, history }) {
 
 const mapStateToProps = (state) => {
   return {
-    searchResults: state.getMovies.searchedMovie,
+    searchResults: state.movieReducer.searchedMovie,
   };
 };
 
