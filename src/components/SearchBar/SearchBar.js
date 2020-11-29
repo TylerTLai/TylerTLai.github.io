@@ -43,7 +43,6 @@ function SearchBar({ findMovie }) {
 
 
     if (e.key === "Enter") {
-      console.log('enter was hit');
       e.target.blur();
     }
 
