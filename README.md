@@ -2,7 +2,7 @@
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/tylertlai?style=social)
 
-<code>React</code> Movie Search is a web app that allows users to search for movies based on the TMDB API.
+Film Findr Version 2 is a <code>React</code> web app that allows users to search for movies based on the TMDB API.
 
 👉 [Live Demo](https://tylertlai.github.io/film-findr-2/#/)
 
